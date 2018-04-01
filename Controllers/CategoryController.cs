@@ -30,5 +30,25 @@ namespace MvcEF.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var category = _context.Categories.FirstOrDefault(x => x.Id == id);
+
+            return View(category);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category category)
+        {
+            var categoryUpdated = _context.Categories.FirstOrDefault(x => x.Id == category.Id);
+            categoryUpdated.Name = category.Name;
+
+            _context.Categories.Update(categoryUpdated);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

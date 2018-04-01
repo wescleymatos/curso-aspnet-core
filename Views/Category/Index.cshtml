@@ -10,7 +10,7 @@
     @foreach(var item in ViewBag.Categories as List<Category>)
     {
         <li>
-            @item.Name
+           <a href="/category/edit/@item.Id">@item.Name</a>
         </li>
     }
 </ul>

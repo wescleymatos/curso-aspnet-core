@@ -1,0 +1,14 @@
+@model MvcEF.Domain.Category;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form asp-controller="Category" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id">
+    <div class="form-group">
+        <label for="Name">Nome</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <button type="submit">Salvar</button>
+</form>
