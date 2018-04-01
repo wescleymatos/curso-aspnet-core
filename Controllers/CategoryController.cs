@@ -50,5 +50,16 @@ namespace MvcEF.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var category = _context.Categories.FirstOrDefault(x => x.Id == id);
+
+            _context.Categories.Remove(category);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
