@@ -1,8 +1,21 @@
 @model MvcEF.Domain.Category;
 
+@using MvcEF.Domain;
+
 @{
     ViewData["Title"] = "Index";
 }
+
+<ul>
+    @foreach(var item in ViewBag.Categories as List<Category>)
+    {
+        <li>
+            @item.Name
+        </li>
+    }
+</ul>
+
+<br>
 
 <form asp-controller="Category" asp-action="Add" method="post">
     <div class="form-group">

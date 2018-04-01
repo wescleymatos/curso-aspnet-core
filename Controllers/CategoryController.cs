@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using MvcEF.Data;
 using MvcEF.Domain;
@@ -15,6 +16,9 @@ namespace MvcEF.Controllers
 
         public IActionResult Index()
         {
+            var categories = _context.Categories.ToList();
+            ViewBag.Categories = categories;
+
             return View();
         }
 
